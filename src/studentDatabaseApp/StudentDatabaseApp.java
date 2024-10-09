@@ -37,7 +37,7 @@ public class StudentDatabaseApp {
 
     public void enroll(){
        do{
-           System.out.println("Enter course to enroll (0 to quit):");
+           System.out.println("Enter course to enroll (enter Q to quit):");
            Scanner in = new Scanner(System.in);
            String course = in.nextLine();
            if(!course.equals("Q")){
@@ -51,6 +51,25 @@ public class StudentDatabaseApp {
         System.out.println("ENROLLED IN: "+courses);
         System.out.println("TUITION BALANCE: "+tuitionBalance);
 
+    }
+    public void viewbalance(){
+        System.out.println("Your balance is: $"+tuitionBalance);
+    }
+
+    public void payTuition(){
+        System.out.println("Enter your payment :$");
+        Scanner in = new Scanner(System.in);
+        int payment =in.nextInt();
+        tuitionBalance = tuitionBalance - payment;
+        System.out.println("Thank you for your payment of $" + payment);
+        viewbalance();
+    }
+
+    public String showInfo(){
+        return "Name: "+firstName+" "+lastName+"\nCourses Enrolled:"+courses+"\nBalance: $"+tuitionBalance;
+    }
+    public String toString(){
+        return "Name: "+firstName+" "+lastName+"\ngrade Level:"+gradeYear+"\nStudent ID: "+studentID+"\nCourses Enrolled:"+courses+"\nBalance: $"+tuitionBalance;
     }
 
 }
